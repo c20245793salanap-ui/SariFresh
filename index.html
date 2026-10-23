@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SariFresh is your neighborhood shop for fresh fruits and refreshing drinks.">
+    <title>SariFresh | Fresh Fruits & Drinks</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+
+        :root {
+            --sf-dominant: #F7F8F2;
+            --sf-secondary: #245C3A;
+            --sf-accent: #F4B942;
+            --sf-text: #26352A;
+            --sf-muted: #526256;
+            --sf-surface: #FFFFFF;
+            --sf-border: #DDE5D8;
+        }
+
+        .dark {
+            --sf-dominant: #14251A;
+            --sf-secondary: #245C3A;
+            --sf-accent: #F4B942;
+            --sf-text: #F1F6EC;
+            --sf-muted: #C1D0C1;
+            --sf-surface: #1C2D22;
+            --sf-border: #395342;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+
+        body {
+            background-color: var(--sf-dominant);
+            color: var(--sf-text);
+        }
+
+        .shop-card {
+            @apply rounded-3xl border p-5 shadow-sm;
+            background-color: var(--sf-surface);
+            border-color: var(--sf-border);
+        }
+
+        .shop-button {
+            @apply inline-flex items-center justify-center rounded-full px-5 py-3 font-semibold focus-visible:outline-2 focus-visible:outline-offset-4;
+            background-color: var(--sf-secondary);
+            color: #FFFFFF;
+        }
+
+        .shop-button:focus-visible {
+            outline-color: var(--sf-accent);
+        }
+
+        .nav-link {
+            @apply rounded-full px-3 py-2 text-sm font-semibold;
+            color: var(--sf-text);
+        }
+
+        .form-field {
+            @apply w-full rounded-xl border px-4 py-3 outline-none focus:ring-2;
+            background-color: var(--sf-surface);
+            border-color: var(--sf-border);
+            color: var(--sf-text);
+            --tw-ring-color: var(--sf-accent);
+        }
+
+        .muted-text {
+            color: var(--sf-muted);
+        }
+
+        .section-shell {
+            @apply mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24;
+        }
+
+        .progress-track {
+            position: fixed;
+            inset: 0 auto auto 0;
+            z-index: 60;
+            height: 4px;
+            width: 100%;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        #progressBar {
+            height: 100%;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: left center;
+            background-color: var(--sf-accent);
+        }
+
+        .fruit-blob {
+            background: radial-gradient(
+                circle at 35% 30%,
+                #F4B942 0 12%,
+                #E98235 13% 45%,
+                #B94E28 75%
+            );
+        }
+
+        .drink-blob {
+            background: linear-gradient(
+                145deg,
+                #F4B942,
+                #F18A55 55%,
+                #C94F39
+            );
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen antialiased">
+    <div class="progress-track" aria-hidden="true">
+        <div id="progressBar"></div>
+    </div>
+
+    <!-- Header and Navigation -->
+    <header class="sticky top-0 z-50 border-b backdrop-blur-md"
+        style="background-color: color-mix(in srgb, var(--sf-dominant) 92%, transparent); border-color: var(--sf-border);">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8"
+            aria-label="Main navigation">
+            <a href="#home" class="flex items-center gap-2 rounded-xl font-black tracking-tight text-xl md:text-2xl"
+                style="color: var(--sf-secondary);">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl text-xl"
+                    style="background-color: var(--sf-accent);" aria-hidden="true">✦</span>
+
+                <span class="dark:text-[#F1F6EC]">
+                    SariFresh<span style="color: var(--sf-accent);">.</span>
+                </span>
+            </a>
+
+            <div class="hidden items-center gap-1 sm:flex">
+                <a class="nav-link hover:bg-black/5 dark:text-[#F1F6EC] dark:hover:bg-white/10" href="#about">About</a>
+                <a class="nav-link hover:bg-black/5 dark:text-[#F1F6EC] dark:hover:bg-white/10"
+                    href="#products">Products</a>
+                <a class="nav-link hover:bg-black/5 dark:text-[#F1F6EC] dark:hover:bg-white/10"
+                    href="#contact">Contact</a>
+            </div>
+
+            <button id="darkModeToggle" type="button"
+                class="shop-button gap-2 text-sm dark:bg-[#245C3A] dark:text-white" aria-pressed="false"
+                aria-label="Switch to dark mode">
+                <span id="themeIcon" aria-hidden="true">☾</span>
+                <span class="hidden sm:inline" id="themeLabel">Dark mode</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative overflow-hidden dark:bg-[#14251A] dark:text-[#F1F6EC]">
+            <div class="section-shell grid items-center gap-12 py-16 md:grid-cols-2 md:py-24 lg:gap-20">
+                <div class="hero-copy relative z-10">
+                    <p class="hero-item mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold"
+                        style="border-color: var(--sf-border); background-color: var(--sf-surface);">
+                        <span aria-hidden="true">●</span>
+                        Your neighborhood fruit & drink shop
+                    </p>
+
+                    <h1
+                        class="hero-item max-w-2xl text-5xl leading-[1.05] font-black tracking-tight sm:text-6xl lg:text-7xl">
+                        A little more
+                        <span style="color: var(--sf-secondary);" class="dark:text-[#F4B942]">freshness</span>
+                        every day.
+                    </h1>
+
+                    <p class="hero-item muted-text mt-6 max-w-xl text-lg leading-8">
+                        Bright, fresh fruits and feel-good drinks picked to make your everyday moments more refreshing.
+                    </p>
+
+                    <div class="hero-item mt-8 flex flex-wrap gap-3">
+                        <a href="#products"
+                            class="shop-button hover:brightness-110 focus-visible:outline-2 dark:bg-[#245C3A] dark:text-white">
+                            Explore our products <span class="ml-2" aria-hidden="true"></span>
+                        </a>
+
+                        <a href="#about"
+                            class="inline-flex items-center justify-center rounded-full border px-5 py-3 font-semibold hover:bg-black/5 dark:hover:bg-white/10"
+                            style="border-color: var(--sf-border);">Our story</a>
+
+                        <button id="replayBtn" type="button"
+                            class="inline-flex items-center justify-center rounded-full border px-5 py-3 font-semibold dark:border-[#395342] dark:text-[#F1F6EC]"
+                            style="border-color: var(--sf-border);" aria-label="Replay hero introduction">Replay intro
+                            ↻</button>
+                    </div>
+
+                    <div class="hero-item mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold muted-text">
+                        <span>✓ Fresh picks</span>
+                        <span>✓ Local convenience</span>
+                        <span>✓ Happy sips</span>
+                    </div>
+                </div>
+
+                <div class="hero-visual relative mx-auto w-full max-w-lg">
+                    <div class="absolute -inset-5 rounded-[3rem] opacity-50 blur-2xl"
+                        style="background-color: var(--sf-accent);" aria-hidden="true"></div>
+
+                    <div class="relative grid grid-cols-2 gap-4 rounded-[2rem] border p-4 shadow-xl sm:p-5"
+                        style="background-color: var(--sf-surface); border-color: var(--sf-border);">
+                        <div
+                            class="fruit-blob flex min-h-52 flex-col justify-between overflow-hidden rounded-[1.5rem] p-5 text-white sm:min-h-60">
+                            <span class="text-xs font-bold uppercase tracking-[0.2em]">Fresh pick</span>
+                            <div>
+                                <p class="text-2xl font-black">Sweet</p>
+                                <p class="text-3xl font-black">Oranges</p>
+                            </div>
+                        </div>
+
+                        <div class="flex min-h-52 flex-col justify-between rounded-[1.5rem] p-5 sm:min-h-60"
+                            style="background-color: #F7DFA2; color: #493719;">
+                            <span class="text-xs font-bold uppercase tracking-[0.2em]">Made to sip</span>
+                            <div>
+                                <p class="text-2xl font-black">Juicy</p>
+                                <p class="text-3xl font-black">Goodness</p>
+                            </div>
+                            <span class="text-4xl" aria-hidden="true">🥤</span>
+                        </div>
+
+                        <div class="col-span-2 flex items-center justify-between gap-4 rounded-2xl p-4"
+                            style="background-color: var(--sf-dominant);">
+                            <div>
+                                <p class="font-black">Fresh choices, happy days.</p>
+                                <p class="muted-text mt-1 text-sm">Fruitful finds for every kind of day.</p>
+                            </div>
+
+                            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full text-2xl"
+                                style="background-color: var(--sf-accent);" aria-hidden="true">✦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="reveal border-y dark:text-[#F1F6EC]"
+            style="background-color: var(--sf-surface); border-color: var(--sf-border);">
+            <div class="section-shell grid gap-10 md:grid-cols-2 md:items-center">
+                <div>
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]" style="color: var(--sf-secondary);">
+                        Get to know us
+                    </p>
+                    <h2 class="text-3xl font-black tracking-tight sm:text-4xl">Small shop. Fresh feeling.</h2>
+                </div>
+
+                <div>
+                    <p class="muted-text text-lg leading-8">
+                        SariFresh is a friendly neighborhood shop bringing fruit favorites and refreshing drinks closer
+                        to your everyday routine. Whether you need a quick snack or a cool drink, we make it easy to
+                        choose something bright and delicious.
+                    </p>
+
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="rounded-full px-4 py-2 text-sm font-bold"
+                            style="background-color: var(--sf-dominant);">Fruit favorites</span>
+                        <span class="rounded-full px-4 py-2 text-sm font-bold"
+                            style="background-color: var(--sf-dominant);">Refreshing drinks</span>
+                        <span class="rounded-full px-4 py-2 text-sm font-bold"
+                            style="background-color: var(--sf-dominant);">Friendly service</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="reveal dark:text-[#F1F6EC]">
+            <div class="section-shell">
+                <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                    <div>
+                        <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]"
+                            style="color: var(--sf-secondary);">
+                            Fresh from SariFresh
+                        </p>
+                        <h2 class="text-3xl font-black tracking-tight sm:text-4xl">Find your fresh favorite.</h2>
+                    </div>
+
+                    <p class="muted-text max-w-md leading-7">
+                        From colorful fruit to chilled drinks, there is something refreshing waiting for you.
+                    </p>
+                </div>
+
+                <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    <article class="shop-card product-card dark:border-[#395342]">
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #FCE7C3;" aria-hidden="true">🍊</div>
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="text-xl font-black">Fresh Oranges</h3>
+                                <p class="muted-text mt-2 leading-6">Citrusy, bright, and full of flavor.</p>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #34250B;">Fruit</span>
+                        </div>
+                        <div class="mt-5 flex items-center justify-between">
+                            <span class="font-black">Seasonal price</span>
+                            <a class="nav-link dark:text-[#F1F6EC]" href="#contact">Ask us </a>
+                        </div>
+                    </article>
+
+                    <article class="shop-card product-card dark:border-[#395342]">
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #F8E7A4;" aria-hidden="true">🥭</div>
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="text-xl font-black">Sweet Mangoes</h3>
+                                <p class="muted-text mt-2 leading-6">A tropical treat for your snack break.</p>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #34250B;">Fruit</span>
+                        </div>
+                        <div class="mt-5 flex items-center justify-between">
+                            <span class="font-black">Seasonal price</span>
+                            <a class="nav-link dark:text-[#F1F6EC]" href="#contact">Ask us </a>
+                        </div>
+                    </article>
+
+                    <article class="shop-card product-card dark:border-[#395342]">
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #F8D8D9;" aria-hidden="true">🍉</div>
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="text-xl font-black">Watermelon</h3>
+                                <p class="muted-text mt-2 leading-6">Juicy, crisp, and perfect for sharing.</p>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #34250B;">Fruit</span>
+                        </div>
+                        <div class="mt-5 flex items-center justify-between">
+                            <span class="font-black">Seasonal price</span>
+                            <a class="nav-link dark:text-[#F1F6EC]" href="#contact">Ask us </a>
+                        </div>
+                    </article>
+
+                    <article class="shop-card product-card dark:border-[#395342]">
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #FCE7C3;" aria-hidden="true">🧃</div>
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="text-xl font-black">Orange Juice</h3>
+                                <p class="muted-text mt-2 leading-6">A refreshing citrus sip for your day.</p>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #34250B;">Drink</span>
+                        </div>
+                        <div class="mt-5 flex items-center justify-between">
+                            <span class="font-black">Ask for price</span>
+                            <a class="nav-link dark:text-[#F1F6EC]" href="#contact">Ask us </a>
+                        </div>
+                    </article>
+
+                    <article class="shop-card product-card dark:border-[#395342]">
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #F8E7A4;" aria-hidden="true">🥤</div>
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="text-xl font-black">Mango Smoothie</h3>
+                                <p class="muted-text mt-2 leading-6">Creamy tropical flavor in every sip.</p>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #34250B;">Drink</span>
+                        </div>
+                        <div class="mt-5 flex items-center justify-between">
+                            <span class="font-black">Ask for price</span>
+                            <a class="nav-link dark:text-[#F1F6EC]" href="#contact">Ask us </a>
+                        </div>
+                    </article>
+
+                    <article class="shop-card product-card dark:border-[#395342]">
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #F8D8D9;" aria-hidden="true">🍹</div>
+                        <div class="flex items-start justify-between gap-3">
+                            <div>
+                                <h3 class="text-xl font-black">Watermelon Cooler</h3>
+                                <p class="muted-text mt-2 leading-6">A cool, fruity drink for sunny afternoons.</p>
+                            </div>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #34250B;">Drink</span>
+                        </div>
+                        <div class="mt-5 flex items-center justify-between">
+                            <span class="font-black">Ask for price</span>
+                            <a class="nav-link dark:text-[#F1F6EC]" href="#contact">Ask us </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promotion Section -->
+        <section class="reveal border-y dark:text-[#F1F6EC]"
+            style="background-color: var(--sf-secondary); border-color: var(--sf-border); color: #FFFFFF;">
+            <div class="section-shell flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+                <div>
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]" style="color: #F4B942;">
+                        Good things grow here
+                    </p>
+                    <h2 class="max-w-2xl text-3xl font-black tracking-tight sm:text-4xl">
+                        Bring a little color to your everyday.
+                    </h2>
+                    <p class="mt-3 max-w-xl leading-7 text-white/85">
+                        Drop by for fruit favorites and drinks that help you refresh and reset.
+                    </p>
+                </div>
+
+                <a href="#contact" class="shop-button shrink-0 dark:text-[#34250B]"
+                    style="background-color: var(--sf-accent); color: #34250B;">
+                    Get in touch <span class="ml-2" aria-hidden="true"></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="reveal dark:text-[#F1F6EC]">
+            <div class="section-shell grid gap-12 md:grid-cols-2">
+                <div>
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]" style="color: var(--sf-secondary);">
+                        Say hello
+                    </p>
+                    <h2 class="text-3xl font-black tracking-tight sm:text-4xl">Let’s make your day fresher.</h2>
+                    <p class="muted-text mt-5 max-w-md text-lg leading-8">
+                        Have a question about our fruits or drinks? Send us a message using the form.
+                    </p>
+
+                    <div class="mt-8 space-y-3 muted-text">
+                        <p><span class="mr-2" aria-hidden="true">📍</span> Your neighborhood, Victorias City</p>
+                        <p><span class="mr-2" aria-hidden="true">🥭</span> Fresh fruits and refreshing drinks</p>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="shop-card space-y-5 dark:border-[#395342]">
+                    <div>
+                        <label for="name" class="mb-2 block text-sm font-bold">Your name</label>
+                        <input class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
+                            type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+
+                    <div>
+                        <label for="email" class="mb-2 block text-sm font-bold">Email address</label>
+                        <input class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
+                            type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+
+                    <div>
+                        <label for="message" class="mb-2 block text-sm font-bold">Message</label>
+                        <textarea class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
+                            id="message" name="message" rows="4" required></textarea>
+                    </div>
+
+                    <button class="shop-button w-full hover:brightness-110 dark:bg-[#245C3A] dark:text-white"
+                        type="submit">
+                        Send message <span class="ml-2" aria-hidden="true"></span>
+                    </button>
+
+                    <p id="formFeedback" class="text-sm muted-text" role="status" aria-live="polite">
+                        This demo form shows a confirmation only; it does not send messages.
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t" style="border-color: var(--sf-border); background-color: var(--sf-surface);">
+        <div
+            class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 text-sm muted-text md:flex-row md:items-center md:justify-between md:px-8">
+            <p class="font-black" style="color: var(--sf-text);">
+                SariFresh<span style="color: var(--sf-accent);">.</span>
+            </p>
+            <p>Fresh fruits. Refreshing drinks. Brighter days.</p>
+            <p>© 2026 SariFresh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP scripts: GSAP first, ScrollTrigger second, custom JavaScript last -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
