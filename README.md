@@ -12,9 +12,9 @@ SariFresh is a small neighborhood shop concept for fresh fruits and refreshing d
 
 | Role | Share | Color | Used for |
 |---|---:|---|---|
-| Dominant | 60% | `#F7F8F2` | Main page background and large open areas |
-| Secondary | 30% | `#245C3A` | Brand color, buttons, and highlighted sections |
-| Accent | 10% | `#F4B942` | Progress bar, small highlights, and decorative details |
+| Dominant | 60% | `#F7F8F2`  WHITE | Main page background and large open areas |
+| Secondary | 30% | `#245C3A` GREEN | Brand color, buttons, and highlighted sections |
+| Accent | 10% | `#F4B942`    YELLOW | Progress bar, small highlights, and decorative details |
 
 Dark theme supporting colors:
 
@@ -53,7 +53,7 @@ Recheck the final deployed page if colors are changed.
 - [x] Saves theme preference using localStorage
 - [x] GSAP intro animation timeline
 - [x] Timeline defaults, stagger, overlap, and easing
-- [x] Replay intro button
+- [x] Refresh page button reloads the full site
 - [x] Scroll reveals for sections below the hero using ScrollTrigger
 - [x] Scroll progress bar driven by scrub and `ease: "none"`
 - [x] Reduced-motion support
