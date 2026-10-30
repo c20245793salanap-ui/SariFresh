@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,12 +98,7 @@
         }
 
         .fruit-blob {
-            background: radial-gradient(
-                circle at 35% 30%,
-                #F4B942 0 12%,
-                #78A86B 13% 45%,
-                #245C3A 75%
-            );
+            background: #6F9A68;
         }
 
         .drink-blob {
@@ -128,46 +124,46 @@
     </div>
 
     <!-- Header and Navigation -->
-    <header
-        class="sticky top-0 z-50 border-b backdrop-blur-md"
-        style="background-color: color-mix(in srgb, var(--sf-dominant) 92%, transparent); border-color: var(--sf-border);"
-    >
-        <nav
-            class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8"
-            aria-label="Main navigation"
-        >
-            <a
-                href="#home"
-                class="flex items-center gap-2 rounded-xl font-black tracking-tight text-xl md:text-2xl"
-                style="color: var(--sf-secondary);"
-            >
-                <span
-                    class="grid h-10 w-10 place-items-center rounded-2xl text-xl"
-                    style="background-color: var(--sf-accent);"
-                    aria-hidden="true"
-                >✦</span>
-
-                <span class="dark:text-[#F1F6EC]">
-                    SariFresh<span style="color: var(--sf-accent);">.</span>
-                </span>
+    <header class="sticky top-0 z-50 border-b backdrop-blur-md"
+        style="background-color: color-mix(in srgb, var(--sf-dominant) 92%, transparent); border-color: var(--sf-border);">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8"
+            aria-label="Main navigation">
+            <a href="#home" class="flex shrink-0 items-center rounded-xl" aria-label="SariFresh home">
+                <svg class="h-10 w-32 md:h-12 md:w-40" viewBox="0 0 260 100" role="img" aria-label="SariFresh — Fresh fruits and drinks">
+                    <path d="M124 26C111 8 95 8 84 13c8 12 20 18 37 17M132 25c4-17 17-24 31-23-2 14-12 23-30 27" fill="#4B8542"/>
+                    <path d="M128 30c0-10 4-17 11-23" fill="none" stroke="#245C3A" stroke-width="3" stroke-linecap="round"/>
+                    <text x="130" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800" letter-spacing="-2">
+                        <tspan fill="#183F2A" class="dark:fill-[#F1F6EC]">Sari</tspan><tspan fill="#4B8542">Fresh</tspan>
+                    </text>
+                    <path d="M37 82h34m118 0h34" stroke="#245C3A" stroke-width="1.5"/>
+                    <text x="130" y="86" text-anchor="middle" fill="#245C3A" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="700" letter-spacing="2.3" class="dark:fill-[#C1D0C1]">FRESH FRUITS &amp; DRINKS</text>
+                </svg>
             </a>
 
             <div class="hidden items-center gap-1 sm:flex">
-                <a class="nav-link hover:bg-[#245C3A]/10 dark:text-[#F1F6EC] dark:hover:bg-white/10" href="#about">About</a>
-                <a class="nav-link hover:bg-[#245C3A]/10 dark:text-[#F1F6EC] dark:hover:bg-white/10" href="#products">Products</a>
-                <a class="nav-link hover:bg-[#245C3A]/10 dark:text-[#F1F6EC] dark:hover:bg-white/10" href="#contact">Contact</a>
+                <a class="nav-link hover:bg-[#245C3A]/10 dark:text-[#F1F6EC] dark:hover:bg-white/10"
+                    href="#about">About</a>
+                <a class="nav-link hover:bg-[#245C3A]/10 dark:text-[#F1F6EC] dark:hover:bg-white/10"
+                    href="#products">Products</a>
+                <a class="nav-link hover:bg-[#245C3A]/10 dark:text-[#F1F6EC] dark:hover:bg-white/10"
+                    href="#contact">Contact</a>
             </div>
 
-            <button
-                id="darkModeToggle"
-                type="button"
-                class="shop-button gap-2 text-sm dark:bg-[#245C3A] dark:text-white"
-                aria-pressed="false"
-                aria-label="Switch to dark mode"
-            >
-                <span id="themeIcon" aria-hidden="true">☾</span>
-                <span class="hidden sm:inline" id="themeLabel">Dark mode</span>
-            </button>
+            <div class="flex items-center gap-2">
+                <button id="replayBtn" type="button"
+                    class="inline-flex items-center justify-center rounded-full border px-3 py-2 text-sm font-semibold dark:border-[#395342] dark:text-[#F1F6EC]"
+                    style="border-color: var(--sf-border);"
+                    aria-label="Replay hero introduction">
+                    Replay intro ↻
+                </button>
+
+                <button id="darkModeToggle" type="button"
+                    class="shop-button gap-2 text-sm dark:bg-[#245C3A] dark:text-white" aria-pressed="false"
+                    aria-label="Switch to dark mode">
+                    <span id="themeIcon" aria-hidden="true">☾</span>
+                    <span class="hidden sm:inline" id="themeLabel">Dark mode</span>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -176,15 +172,14 @@
         <section id="home" class="relative overflow-hidden dark:bg-[#14251A] dark:text-[#F1F6EC]">
             <div class="section-shell grid items-center gap-12 py-16 md:grid-cols-2 md:py-24 lg:gap-20">
                 <div class="hero-copy relative z-10">
-                    <p
-                        class="hero-item mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold"
-                        style="border-color: var(--sf-border); background-color: var(--sf-surface);"
-                    >
+                    <p class="hero-item mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold"
+                        style="border-color: var(--sf-border); background-color: var(--sf-surface);">
                         <span aria-hidden="true">●</span>
                         Your neighborhood fruit & drink shop
                     </p>
 
-                    <h1 class="hero-item max-w-2xl text-5xl leading-[1.05] font-black tracking-tight sm:text-6xl lg:text-7xl">
+                    <h1
+                        class="hero-item max-w-2xl text-5xl leading-[1.05] font-black tracking-tight sm:text-6xl lg:text-7xl">
                         A little more
                         <span style="color: var(--sf-secondary);" class="dark:text-[#F4B942]">freshness</span>
                         every day.
@@ -195,23 +190,15 @@
                     </p>
 
                     <div class="hero-item mt-8 flex flex-wrap gap-3">
-                        <a href="#products" class="shop-button hover:brightness-110 focus-visible:outline-2 dark:bg-[#245C3A] dark:text-white">
+                        <a href="#products"
+                            class="shop-button hover:brightness-110 focus-visible:outline-2 dark:bg-[#245C3A] dark:text-white">
                             Explore our products <span class="ml-2" aria-hidden="true"></span>
                         </a>
 
-                        <a
-                            href="#about"
+                        <a href="#about"
                             class="inline-flex items-center justify-center rounded-full border px-5 py-3 font-semibold hover:bg-[#245C3A]/10 dark:hover:bg-white/10"
-                            style="border-color: var(--sf-border);"
-                        >Our story</a>
+                            style="border-color: var(--sf-border);">Our story</a>
 
-                        <button
-                            id="replayBtn"
-                            type="button"
-                            class="inline-flex items-center justify-center rounded-full border px-5 py-3 font-semibold dark:border-[#395342] dark:text-[#F1F6EC]"
-                            style="border-color: var(--sf-border);"
-                            aria-label="Replay hero introduction"
-                        >Replay intro ↻</button>
                     </div>
 
                     <div class="hero-item mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold muted-text">
@@ -222,28 +209,55 @@
                 </div>
 
                 <div class="hero-visual relative mx-auto w-full max-w-lg">
-                    <div
-                        class="absolute -inset-5 rounded-[3rem] opacity-50 blur-2xl"
-                        style="background-color: var(--sf-accent);"
-                        aria-hidden="true"
-                    ></div>
-
-                    <div
-                        class="relative grid grid-cols-2 gap-4 rounded-[2rem] border p-4 shadow-xl sm:p-5"
-                        style="background-color: var(--sf-surface); border-color: var(--sf-border);"
-                    >
-                        <div class="fruit-blob flex min-h-52 flex-col justify-between overflow-hidden rounded-[1.5rem] p-5 text-white sm:min-h-60">
+                    <div class="relative grid grid-cols-2 gap-4 rounded-[2rem] border p-4 sm:p-5"
+                        style="background-color: var(--sf-surface); border-color: var(--sf-border);">
+                        <div
+                            class="fruit-blob flex min-h-52 flex-col justify-between overflow-hidden rounded-[1.5rem] p-5 text-white sm:min-h-60">
                             <span class="text-xs font-bold uppercase tracking-[0.2em]">Fresh pick</span>
+
+                            <div class="flex flex-1 items-center justify-center py-2">
+                                <svg class="h-32 w-40 drop-shadow-[0_8px_10px_rgba(0,0,0,0.16)]" viewBox="0 0 240 180" role="img" aria-label="Illustration of whole and sliced oranges">
+                                    <defs>
+                                        <linearGradient id="orangePeel" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0" stop-color="#FFC34D"/>
+                                            <stop offset="1" stop-color="#EF7D16"/>
+                                        </linearGradient>
+                                        <radialGradient id="orangeFlesh" cx="38%" cy="30%" r="75%">
+                                            <stop offset="0" stop-color="#FFD66A"/>
+                                            <stop offset="1" stop-color="#F7941D"/>
+                                        </radialGradient>
+                                    </defs>
+                                    <ellipse cx="125" cy="151" rx="76" ry="9" fill="#173D2A" opacity="0.16"/>
+                                    <circle cx="91" cy="93" r="51" fill="url(#orangePeel)" stroke="#214F34" stroke-width="3"/>
+                                    <path d="M89 44c-20-28-51-26-66-7 20 1 36 11 47 28 8-8 13-14 19-21z" fill="#39804D" stroke="#214F34" stroke-width="3" stroke-linejoin="round"/>
+                                    <path d="M31 38c15 5 27 14 39 27M48 34c-2 9-2 17 0 25M59 40c-5 8-8 15-10 23" fill="none" stroke="#A8CB75" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+                                    <path d="M90 45c3-8 8-12 15-14" fill="none" stroke="#214F34" stroke-width="4" stroke-linecap="round"/>
+                                    <circle cx="159" cy="98" r="53" fill="#E87917" stroke="#214F34" stroke-width="3"/>
+                                    <circle cx="159" cy="98" r="47" fill="#FFF2D0"/>
+                                    <circle cx="159" cy="98" r="41" fill="url(#orangeFlesh)"/>
+                                    <g fill="none" stroke="#FFF2D0" stroke-width="2.5" stroke-linecap="round">
+                                        <path d="M159 98 159 58"/>
+                                        <path d="M159 98 187 69"/>
+                                        <path d="M159 98 199 98"/>
+                                        <path d="M159 98 188 127"/>
+                                        <path d="M159 98 159 138"/>
+                                        <path d="M159 98 130 127"/>
+                                        <path d="M159 98 119 98"/>
+                                        <path d="M159 98 130 69"/>
+                                    </g>
+                                    <circle cx="159" cy="98" r="7" fill="#FFF2D0"/>
+                                    <circle cx="159" cy="98" r="3" fill="#F4B942"/>
+                                </svg>
+                            </div>
+
                             <div>
                                 <p class="text-2xl font-black">Sweet</p>
                                 <p class="text-3xl font-black">Oranges</p>
                             </div>
                         </div>
 
-                        <div
-                            class="flex min-h-52 flex-col justify-between rounded-[1.5rem] p-5 sm:min-h-60"
-                            style="background-color: #FFF1A8; color: #245C3A;"
-                        >
+                        <div class="flex min-h-52 flex-col justify-between rounded-[1.5rem] p-5 sm:min-h-60"
+                            style="background-color: #FFF1A8; color: #245C3A;">
                             <span class="text-xs font-bold uppercase tracking-[0.2em]">Made to sip</span>
                             <div>
                                 <p class="text-2xl font-black">Juicy</p>
@@ -252,20 +266,15 @@
                             <span class="text-4xl" aria-hidden="true">🥤</span>
                         </div>
 
-                        <div
-                            class="col-span-2 flex items-center justify-between gap-4 rounded-2xl p-4"
-                            style="background-color: var(--sf-dominant);"
-                        >
+                        <div class="col-span-2 flex items-center justify-between gap-4 rounded-2xl p-4"
+                            style="background-color: var(--sf-dominant);">
                             <div>
                                 <p class="font-black">Fresh choices, happy days.</p>
                                 <p class="muted-text mt-1 text-sm">Fruitful finds for every kind of day.</p>
                             </div>
 
-                            <span
-                                class="grid h-12 w-12 shrink-0 place-items-center rounded-full text-2xl"
-                                style="background-color: var(--sf-accent);"
-                                aria-hidden="true"
-                            >✦</span>
+                            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full text-2xl"
+                                style="background-color: var(--sf-accent);" aria-hidden="true">✦</span>
                         </div>
                     </div>
                 </div>
@@ -273,11 +282,8 @@
         </section>
 
         <!-- About Section -->
-        <section
-            id="about"
-            class="reveal border-y dark:text-[#F1F6EC]"
-            style="background-color: var(--sf-surface); border-color: var(--sf-border);"
-        >
+        <section id="about" class="reveal border-y dark:text-[#F1F6EC]"
+            style="background-color: var(--sf-surface); border-color: var(--sf-border);">
             <div class="section-shell grid gap-10 md:grid-cols-2 md:items-center">
                 <div>
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]" style="color: var(--sf-secondary);">
@@ -288,13 +294,18 @@
 
                 <div>
                     <p class="muted-text text-lg leading-8">
-                        SariFresh is a friendly neighborhood shop bringing fruit favorites and refreshing drinks closer to your everyday routine. Whether you need a quick snack or a cool drink, we make it easy to choose something bright and delicious.
+                        SariFresh is a friendly neighborhood shop bringing fruit favorites and refreshing drinks closer
+                        to your everyday routine. Whether you need a quick snack or a cool drink, we make it easy to
+                        choose something bright and delicious.
                     </p>
 
                     <div class="mt-6 flex flex-wrap gap-3">
-                        <span class="rounded-full px-4 py-2 text-sm font-bold" style="background-color: var(--sf-dominant);">Fruit favorites</span>
-                        <span class="rounded-full px-4 py-2 text-sm font-bold" style="background-color: var(--sf-dominant);">Refreshing drinks</span>
-                        <span class="rounded-full px-4 py-2 text-sm font-bold" style="background-color: var(--sf-dominant);">Friendly service</span>
+                        <span class="rounded-full px-4 py-2 text-sm font-bold"
+                            style="background-color: var(--sf-dominant);">Fruit favorites</span>
+                        <span class="rounded-full px-4 py-2 text-sm font-bold"
+                            style="background-color: var(--sf-dominant);">Refreshing drinks</span>
+                        <span class="rounded-full px-4 py-2 text-sm font-bold"
+                            style="background-color: var(--sf-dominant);">Friendly service</span>
                     </div>
                 </div>
             </div>
@@ -305,7 +316,8 @@
             <div class="section-shell">
                 <div class="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                     <div>
-                        <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]" style="color: var(--sf-secondary);">
+                        <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]"
+                            style="color: var(--sf-secondary);">
                             Fresh from SariFresh
                         </p>
                         <h2 class="text-3xl font-black tracking-tight sm:text-4xl">Find your fresh favorite.</h2>
@@ -318,13 +330,15 @@
 
                 <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     <article class="shop-card product-card dark:border-[#395342]">
-                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl" style="background-color: #FFF1A8;" aria-hidden="true">🍊</div>
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #FFF1A8;" aria-hidden="true">🍊</div>
                         <div class="flex items-start justify-between gap-3">
                             <div>
                                 <h3 class="text-xl font-black">Fresh Oranges</h3>
                                 <p class="muted-text mt-2 leading-6">Citrusy, bright, and full of flavor.</p>
                             </div>
-                            <span class="rounded-full px-3 py-1 text-sm font-black" style="background-color: var(--sf-accent); color: #245C3A;">Fruit</span>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #245C3A;">Fruit</span>
                         </div>
                         <div class="mt-5 flex items-center justify-between">
                             <span class="font-black">Seasonal price</span>
@@ -333,13 +347,15 @@
                     </article>
 
                     <article class="shop-card product-card dark:border-[#395342]">
-                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl" style="background-color: #DCEB9A;" aria-hidden="true">🥭</div>
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #DCEB9A;" aria-hidden="true">🥭</div>
                         <div class="flex items-start justify-between gap-3">
                             <div>
                                 <h3 class="text-xl font-black">Sweet Mangoes</h3>
                                 <p class="muted-text mt-2 leading-6">A tropical treat for your snack break.</p>
                             </div>
-                            <span class="rounded-full px-3 py-1 text-sm font-black" style="background-color: var(--sf-accent); color: #245C3A;">Fruit</span>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #245C3A;">Fruit</span>
                         </div>
                         <div class="mt-5 flex items-center justify-between">
                             <span class="font-black">Seasonal price</span>
@@ -348,13 +364,15 @@
                     </article>
 
                     <article class="shop-card product-card dark:border-[#395342]">
-                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl" style="background-color: #DCEB9A;" aria-hidden="true">🍉</div>
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #DCEB9A;" aria-hidden="true">🍉</div>
                         <div class="flex items-start justify-between gap-3">
                             <div>
                                 <h3 class="text-xl font-black">Watermelon</h3>
                                 <p class="muted-text mt-2 leading-6">Juicy, crisp, and perfect for sharing.</p>
                             </div>
-                            <span class="rounded-full px-3 py-1 text-sm font-black" style="background-color: var(--sf-accent); color: #245C3A;">Fruit</span>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #245C3A;">Fruit</span>
                         </div>
                         <div class="mt-5 flex items-center justify-between">
                             <span class="font-black">Seasonal price</span>
@@ -363,13 +381,15 @@
                     </article>
 
                     <article class="shop-card product-card dark:border-[#395342]">
-                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl" style="background-color: #FFF1A8;" aria-hidden="true">🧃</div>
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #FFF1A8;" aria-hidden="true">🧃</div>
                         <div class="flex items-start justify-between gap-3">
                             <div>
                                 <h3 class="text-xl font-black">Orange Juice</h3>
                                 <p class="muted-text mt-2 leading-6">A refreshing citrus sip for your day.</p>
                             </div>
-                            <span class="rounded-full px-3 py-1 text-sm font-black" style="background-color: var(--sf-accent); color: #245C3A;">Drink</span>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #245C3A;">Drink</span>
                         </div>
                         <div class="mt-5 flex items-center justify-between">
                             <span class="font-black">Ask for price</span>
@@ -378,13 +398,15 @@
                     </article>
 
                     <article class="shop-card product-card dark:border-[#395342]">
-                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl" style="background-color: #DCEB9A;" aria-hidden="true">🥤</div>
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #DCEB9A;" aria-hidden="true">🥤</div>
                         <div class="flex items-start justify-between gap-3">
                             <div>
                                 <h3 class="text-xl font-black">Mango Smoothie</h3>
                                 <p class="muted-text mt-2 leading-6">Creamy tropical flavor in every sip.</p>
                             </div>
-                            <span class="rounded-full px-3 py-1 text-sm font-black" style="background-color: var(--sf-accent); color: #245C3A;">Drink</span>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #245C3A;">Drink</span>
                         </div>
                         <div class="mt-5 flex items-center justify-between">
                             <span class="font-black">Ask for price</span>
@@ -393,13 +415,15 @@
                     </article>
 
                     <article class="shop-card product-card dark:border-[#395342]">
-                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl" style="background-color: #DCEB9A;" aria-hidden="true">🍹</div>
+                        <div class="mb-5 grid h-40 place-items-center rounded-2xl text-7xl"
+                            style="background-color: #DCEB9A;" aria-hidden="true">🍹</div>
                         <div class="flex items-start justify-between gap-3">
                             <div>
                                 <h3 class="text-xl font-black">Watermelon Cooler</h3>
                                 <p class="muted-text mt-2 leading-6">A cool, fruity drink for sunny afternoons.</p>
                             </div>
-                            <span class="rounded-full px-3 py-1 text-sm font-black" style="background-color: var(--sf-accent); color: #245C3A;">Drink</span>
+                            <span class="rounded-full px-3 py-1 text-sm font-black"
+                                style="background-color: var(--sf-accent); color: #245C3A;">Drink</span>
                         </div>
                         <div class="mt-5 flex items-center justify-between">
                             <span class="font-black">Ask for price</span>
@@ -411,10 +435,8 @@
         </section>
 
         <!-- Promotion Section -->
-        <section
-            class="reveal border-y dark:text-[#F1F6EC]"
-            style="background-color: var(--sf-secondary); border-color: var(--sf-border); color: #FFFFFF;"
-        >
+        <section class="reveal border-y dark:text-[#F1F6EC]"
+            style="background-color: var(--sf-secondary); border-color: var(--sf-border); color: #FFFFFF;">
             <div class="section-shell flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
                 <div>
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.2em]" style="color: #F4B942;">
@@ -428,11 +450,8 @@
                     </p>
                 </div>
 
-                <a
-                    href="#contact"
-                    class="shop-button shrink-0 dark:text-[#245C3A]"
-                    style="background-color: var(--sf-accent); color: #245C3A;"
-                >
+                <a href="#contact" class="shop-button shrink-0 dark:text-[#245C3A]"
+                    style="background-color: var(--sf-accent); color: #245C3A;">
                     Get in touch <span class="ml-2" aria-hidden="true">→</span>
                 </a>
             </div>
@@ -459,40 +478,24 @@
                 <form id="contactForm" class="shop-card space-y-5 dark:border-[#395342]">
                     <div>
                         <label for="name" class="mb-2 block text-sm font-bold">Your name</label>
-                        <input
-                            class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
-                            type="text"
-                            id="name"
-                            name="name"
-                            autocomplete="name"
-                            required
-                        >
+                        <input class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
+                            type="text" id="name" name="name" autocomplete="name" required>
                     </div>
 
                     <div>
                         <label for="email" class="mb-2 block text-sm font-bold">Email address</label>
-                        <input
-                            class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
-                            type="email"
-                            id="email"
-                            name="email"
-                            autocomplete="email"
-                            required
-                        >
+                        <input class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
+                            type="email" id="email" name="email" autocomplete="email" required>
                     </div>
 
                     <div>
                         <label for="message" class="mb-2 block text-sm font-bold">Message</label>
-                        <textarea
-                            class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
-                            id="message"
-                            name="message"
-                            rows="4"
-                            required
-                        ></textarea>
+                        <textarea class="form-field dark:border-[#395342] dark:bg-[#1C2D22] dark:text-[#F1F6EC]"
+                            id="message" name="message" rows="4" required></textarea>
                     </div>
 
-                    <button class="shop-button w-full hover:brightness-110 dark:bg-[#245C3A] dark:text-white" type="submit">
+                    <button class="shop-button w-full hover:brightness-110"
+                        style="background-color: var(--sf-accent); color: #245C3A;" type="submit">
                         Send message <span class="ml-2" aria-hidden="true">→</span>
                     </button>
 
@@ -506,7 +509,8 @@
 
     <!-- Footer -->
     <footer class="border-t" style="border-color: var(--sf-border); background-color: var(--sf-surface);">
-        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 text-sm muted-text md:flex-row md:items-center md:justify-between md:px-8">
+        <div
+            class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 text-sm muted-text md:flex-row md:items-center md:justify-between md:px-8">
             <p class="font-black" style="color: var(--sf-text);">
                 SariFresh<span style="color: var(--sf-accent);">.</span>
             </p>
@@ -520,4 +524,5 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
