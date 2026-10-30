@@ -1,6 +1,6 @@
 # SariFresh — Fresh Fruits & Drinks
 
-**Live site:** https://YOUR-USERNAME.github.io/YOUR-REPO/
+**Live site:** https://c20245793salanap-ui.github.io/SariFresh/
 
 ## About
 

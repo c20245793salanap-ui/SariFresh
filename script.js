@@ -97,13 +97,9 @@ if (prefersReducedMotion.matches) {
     introTimeline.play();
 }
 
-// Replay the intro when the button is clicked.
+// Reload the full page when the refresh button is clicked.
 replayButton.addEventListener("click", () => {
-    if (prefersReducedMotion.matches) {
-        return;
-    }
-
-    introTimeline.restart();
+    window.location.reload();
 });
 
 // GSAP matchMedia handles animations based on motion preferences.

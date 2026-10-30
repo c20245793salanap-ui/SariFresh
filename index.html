@@ -128,16 +128,16 @@
         style="background-color: color-mix(in srgb, var(--sf-dominant) 92%, transparent); border-color: var(--sf-border);">
         <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8"
             aria-label="Main navigation">
-            <a href="#home" class="flex shrink-0 items-center rounded-xl" aria-label="SariFresh home">
-                <svg class="h-10 w-32 md:h-12 md:w-40" viewBox="0 0 260 100" role="img" aria-label="SariFresh — Fresh fruits and drinks">
-                    <path d="M124 26C111 8 95 8 84 13c8 12 20 18 37 17M132 25c4-17 17-24 31-23-2 14-12 23-30 27" fill="#4B8542"/>
-                    <path d="M128 30c0-10 4-17 11-23" fill="none" stroke="#245C3A" stroke-width="3" stroke-linecap="round"/>
-                    <text x="130" y="65" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800" letter-spacing="-2">
-                        <tspan fill="#183F2A" class="dark:fill-[#F1F6EC]">Sari</tspan><tspan fill="#4B8542">Fresh</tspan>
-                    </text>
-                    <path d="M37 82h34m118 0h34" stroke="#245C3A" stroke-width="1.5"/>
-                    <text x="130" y="86" text-anchor="middle" fill="#245C3A" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="700" letter-spacing="2.3" class="dark:fill-[#C1D0C1]">FRESH FRUITS &amp; DRINKS</text>
+            <a href="#home" class="flex shrink-0 items-center gap-2 rounded-xl" aria-label="SariFresh home">
+                <svg class="h-10 w-10" viewBox="0 0 48 48" aria-hidden="true">
+                    <path d="M24 13c-2-7 2-11 8-12-1 6-4 10-8 12" fill="#397A45" />
+                    <path d="M22 14c-6-5-12-4-15-1 4 4 9 5 15 3" fill="#5A944F" />
+                    <circle cx="23" cy="28" r="15" fill="#F4B942" />
+                    <path d="M13 25c3-7 9-11 15-11-3 2-5 5-6 8-3 1-6 2-9 3" fill="#FFD978" opacity=".8" />
                 </svg>
+                <span class="text-xl font-black tracking-tight text-[#245C3A] dark:text-[#F1F6EC] md:text-2xl">
+                    SariFresh<span class="text-[#F4B942]">.</span>
+                </span>
             </a>
 
             <div class="hidden items-center gap-1 sm:flex">
@@ -152,9 +152,8 @@
             <div class="flex items-center gap-2">
                 <button id="replayBtn" type="button"
                     class="inline-flex items-center justify-center rounded-full border px-3 py-2 text-sm font-semibold dark:border-[#395342] dark:text-[#F1F6EC]"
-                    style="border-color: var(--sf-border);"
-                    aria-label="Replay hero introduction">
-                    Replay intro ↻
+                    style="border-color: var(--sf-border);" aria-label="Refresh the whole page">
+                    Refresh page ↻
                 </button>
 
                 <button id="darkModeToggle" type="button"
@@ -216,37 +215,43 @@
                             <span class="text-xs font-bold uppercase tracking-[0.2em]">Fresh pick</span>
 
                             <div class="flex flex-1 items-center justify-center py-2">
-                                <svg class="h-32 w-40 drop-shadow-[0_8px_10px_rgba(0,0,0,0.16)]" viewBox="0 0 240 180" role="img" aria-label="Illustration of whole and sliced oranges">
+                                <svg class="h-32 w-40 drop-shadow-[0_8px_10px_rgba(0,0,0,0.16)]" viewBox="0 0 240 180"
+                                    role="img" aria-label="Illustration of whole and sliced oranges">
                                     <defs>
                                         <linearGradient id="orangePeel" x1="0" y1="0" x2="1" y2="1">
-                                            <stop offset="0" stop-color="#FFC34D"/>
-                                            <stop offset="1" stop-color="#EF7D16"/>
+                                            <stop offset="0" stop-color="#FFC34D" />
+                                            <stop offset="1" stop-color="#EF7D16" />
                                         </linearGradient>
                                         <radialGradient id="orangeFlesh" cx="38%" cy="30%" r="75%">
-                                            <stop offset="0" stop-color="#FFD66A"/>
-                                            <stop offset="1" stop-color="#F7941D"/>
+                                            <stop offset="0" stop-color="#FFD66A" />
+                                            <stop offset="1" stop-color="#F7941D" />
                                         </radialGradient>
                                     </defs>
-                                    <ellipse cx="125" cy="151" rx="76" ry="9" fill="#173D2A" opacity="0.16"/>
-                                    <circle cx="91" cy="93" r="51" fill="url(#orangePeel)" stroke="#214F34" stroke-width="3"/>
-                                    <path d="M89 44c-20-28-51-26-66-7 20 1 36 11 47 28 8-8 13-14 19-21z" fill="#39804D" stroke="#214F34" stroke-width="3" stroke-linejoin="round"/>
-                                    <path d="M31 38c15 5 27 14 39 27M48 34c-2 9-2 17 0 25M59 40c-5 8-8 15-10 23" fill="none" stroke="#A8CB75" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-                                    <path d="M90 45c3-8 8-12 15-14" fill="none" stroke="#214F34" stroke-width="4" stroke-linecap="round"/>
-                                    <circle cx="159" cy="98" r="53" fill="#E87917" stroke="#214F34" stroke-width="3"/>
-                                    <circle cx="159" cy="98" r="47" fill="#FFF2D0"/>
-                                    <circle cx="159" cy="98" r="41" fill="url(#orangeFlesh)"/>
+                                    <ellipse cx="125" cy="151" rx="76" ry="9" fill="#173D2A" opacity="0.16" />
+                                    <circle cx="91" cy="93" r="51" fill="url(#orangePeel)" stroke="#214F34"
+                                        stroke-width="3" />
+                                    <path d="M89 44c-20-28-51-26-66-7 20 1 36 11 47 28 8-8 13-14 19-21z" fill="#39804D"
+                                        stroke="#214F34" stroke-width="3" stroke-linejoin="round" />
+                                    <path d="M31 38c15 5 27 14 39 27M48 34c-2 9-2 17 0 25M59 40c-5 8-8 15-10 23"
+                                        fill="none" stroke="#A8CB75" stroke-width="2" stroke-linecap="round"
+                                        opacity="0.8" />
+                                    <path d="M90 45c3-8 8-12 15-14" fill="none" stroke="#214F34" stroke-width="4"
+                                        stroke-linecap="round" />
+                                    <circle cx="159" cy="98" r="53" fill="#E87917" stroke="#214F34" stroke-width="3" />
+                                    <circle cx="159" cy="98" r="47" fill="#FFF2D0" />
+                                    <circle cx="159" cy="98" r="41" fill="url(#orangeFlesh)" />
                                     <g fill="none" stroke="#FFF2D0" stroke-width="2.5" stroke-linecap="round">
-                                        <path d="M159 98 159 58"/>
-                                        <path d="M159 98 187 69"/>
-                                        <path d="M159 98 199 98"/>
-                                        <path d="M159 98 188 127"/>
-                                        <path d="M159 98 159 138"/>
-                                        <path d="M159 98 130 127"/>
-                                        <path d="M159 98 119 98"/>
-                                        <path d="M159 98 130 69"/>
+                                        <path d="M159 98 159 58" />
+                                        <path d="M159 98 187 69" />
+                                        <path d="M159 98 199 98" />
+                                        <path d="M159 98 188 127" />
+                                        <path d="M159 98 159 138" />
+                                        <path d="M159 98 130 127" />
+                                        <path d="M159 98 119 98" />
+                                        <path d="M159 98 130 69" />
                                     </g>
-                                    <circle cx="159" cy="98" r="7" fill="#FFF2D0"/>
-                                    <circle cx="159" cy="98" r="3" fill="#F4B942"/>
+                                    <circle cx="159" cy="98" r="7" fill="#FFF2D0" />
+                                    <circle cx="159" cy="98" r="3" fill="#F4B942" />
                                 </svg>
                             </div>
 
@@ -452,7 +457,7 @@
 
                 <a href="#contact" class="shop-button shrink-0 dark:text-[#245C3A]"
                     style="background-color: var(--sf-accent); color: #245C3A;">
-                    Get in touch <span class="ml-2" aria-hidden="true">→</span>
+                    Get in touch <span class="ml-2" aria-hidden="true"></span>
                 </a>
             </div>
         </section>
@@ -496,7 +501,7 @@
 
                     <button class="shop-button w-full hover:brightness-110"
                         style="background-color: var(--sf-accent); color: #245C3A;" type="submit">
-                        Send message <span class="ml-2" aria-hidden="true">→</span>
+                        Send message <span class="ml-2" aria-hidden="true"></span>
                     </button>
 
                     <p id="formFeedback" class="text-sm muted-text" role="status" aria-live="polite">
